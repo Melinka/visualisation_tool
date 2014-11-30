@@ -1,0 +1,119 @@
+[
+    {
+        "featureType": "poi",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "all",
+        "stylers": [
+            {
+                "saturation": -70
+            },
+            {
+                "lightness": 37
+            },
+            {
+                "gamma": 1.15
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            },
+            {
+                "gamma": 0.26
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "all",
+        "stylers": [
+            {
+                "hue": "#ffffff"
+            },
+            {
+                "saturation": 0
+            },
+            {
+                "lightness": 0
+            },
+            {
+                "gamma": 0
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "lightness": 20
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "hue": "#ffffff"
+            },
+            {
+                "saturation": 0
+            },
+            {
+                "lightness": 50
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.province",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "lightness": -50
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.province",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.province",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "lightness": 20
+            }
+        ]
+    }
+]						
