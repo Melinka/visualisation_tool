@@ -5,8 +5,14 @@ focusMonth = (->)
 focusWeekDays = (->)
 focusMonthYear = (->)
 
+f = ->
+	d3.selectAll '#map'
+		.style {
+			"position": "fixed"
+		}
 
-initCrossMap = ->
+
+initCrossMap = (csvUrl)->
 	### TODO remove map style
 	### use canvas instead of SVG
 	colorYellow = "rgb(255, 204, 0)"
@@ -61,6 +67,7 @@ initCrossMap = ->
 		map.setMapTypeId('map_style')
 
 		overlay.setMap(map)
+
 
 
 	transform = (d)->
@@ -130,8 +137,8 @@ initCrossMap = ->
 
 
 
-	err, tsvBody <- d3.csv "./Sorted_Protest_Data_South_Africa.csv"
-	# "./accidentXY_light.tsv"
+	err, tsvBody <- d3.csv csvUrl
+	# "./Sorted_Protest_Data_South_Africa.csv"
 
 
 	# # deadData = []
@@ -149,7 +156,7 @@ initCrossMap = ->
 		it.week = weekDayTable[it.date.getDay!]
 		true
 
-	#map
+	####map
 	overlay := new google.maps.OverlayView!
 
 	overlay.onAdd = ->
@@ -235,8 +242,7 @@ initCrossMap = ->
 
 	barMt = 350
 	barWk = 270
-	# barHr = 550
-	barHr = 650
+	barHr = 450
 
 	marginMt = {
 		"top": 10,
@@ -276,7 +282,11 @@ initCrossMap = ->
 		.yAxis!
 		.ticks(4)
 
-	dm = ([2012 to 2014].map (y)-> [1 to 12].map (m)-> (y + "_" + m) ) |> _.flatten |> _.drop 12 |> _.take 15
+	monthLs = ["Jan.", "Feb.", "Mar.", "Apr.", "May", "Jun.", "Jul.", "Aug.", "Sep.", "Oct.", "Nov.", "Dec."]
+	monthTbl = _.lists-to-obj [1 to 12], monthLs
+	# monthTbl[m]
+
+	dm = ([2012 to 2014].map (y)-> [1 to 12].map (m)-> (y + "_" + m) ) |> _.flatten |> _.drop 18 |> _.take 8
 
 	barAcciHour.width(barHr)
 		.height(100)
@@ -302,31 +312,69 @@ initCrossMap = ->
 		dc.redrawAll!
 
 	focusMonthYear := ->
-		barAcciHour.filter it
+		if _.is-type 'Array', it 
+			it |> _.map (a)-> (barAcciHour.filter a)
+		else 
+			it |> barAcciHour.filter
 		dc.redrawAll!
-
 	dc.renderAll!
 	initMap!
 
-initCrossMap!
 
-lsExplain = [
-	{
-		"enter": (->)
-		"text": "There are a lot of people"
-	}
-	{
-		"enter": (-> focusMonth 1)
-		"text": "The Majority of people comes from Europe."
-	}
-	{
-		"enter": (-> focusMonth 1)
-		"text": "Some other explanation."
-	}
-	{
-		"enter": (-> focusMonth 1)
-		"text": "Country Breakdown."
-	}
-]
 
-lsExplain |> buildSlider
+
+
+# lsExplain = [
+# 	{
+# 		"enter": (->)
+# 		"text": "There are a lot of people"
+# 	}
+# 	{
+# 		"enter": (-> focusMonth 1)
+# 		"text": "The Majority of people comes from Europe."
+# 	}
+# 	{
+# 		"enter": (-> focusMonth 1)
+# 		"text": "Some other explanation."
+# 	}
+# 	{
+# 		"enter": (-> focusMonth 1)
+# 		"text": "Country Breakdown."
+# 	}
+# ]
+
+# # lsExplain |> buildSlider
+
+
+buildNarrative = ->
+	err, csvData <- d3.tsv it
+	csvData |> buildSlider
+	
+	 
+
+	
+
+Parse.initialize("0GI98IoEbwAmZb8zHw2hUj6TgA1M3af5rRKX6eUU", "CJV6NXQXXjCFQsO0vQnZMhGQ1J4I8anfLd7X9iNW")
+
+getURLParameter = (name)->
+	(window.location.href |> _.split "id=")[1]
+	# decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&]+?)(&|#||$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+
+objectId = getURLParameter("id")
+
+Story = Parse.Object.extend("Story")
+query = new Parse.Query(Story)	
+query.equalTo("objectId", objectId)
+query.find({
+	success: ( (results)->
+		dataURL = results[0].get("Data")
+		storyURL = results[0].get("Story")
+		dataURL |> initCrossMap 
+		storyURL |> buildNarrative
+
+		),
+	error: (error)->
+		alert("Error: " + error.code + " " + error.message)
+})
+
+# setTimeout(f, 1000)

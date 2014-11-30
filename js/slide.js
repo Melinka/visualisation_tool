@@ -21,7 +21,11 @@ buildSlider = function(lsExplain){
     if (i !== sld.hghidx) {
       sld.hghidx = i;
       updtBlackIdxDots();
-      return lsExplain[sld.hghidx].enter();
+      if (lsExplain[sld.hghidx].eval !== undefined) {
+        return eval(lsExplain[sld.hghidx].eval);
+      } else {
+        return lsExplain[sld.hghidx].enter();
+      }
     }
   };
   scrollingTo = function(i){

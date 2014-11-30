@@ -55,7 +55,7 @@ appendCircle = ->
 				"r": 0
 			}
 			.style {
-				"fill": ->colorbrewer["Oranges"][9][~~(Math.random! * 7 + 2)]
+				"fill": ->colorbrewer["Reds"][9][~~(Math.random! * 5 + 2)]
 				# "white"
 			}
 ## use the transition on the call side; so that it will send data instead of transition
@@ -153,7 +153,8 @@ buildForce = ->
 
 	node = []
 	function tick (it)
-		k = 1 * it.alpha
+		# k = 1 * it.alpha
+		k = 0.5 * it.alpha
 		f.data.forEach (o, i)->
 			o.y += (o.target.y - o.y) * k
 			o.x += (o.target.x - o.x) * k

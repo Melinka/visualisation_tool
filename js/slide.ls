@@ -23,7 +23,10 @@ buildSlider = (lsExplain)->
 			sld.hghidx := i
 			updtBlackIdxDots!
 			# if d is "d" then lsExplain[sld.hghidx].enter2down! else lsExplain[sld.hghidx].enter2up!
-			lsExplain[sld.hghidx].enter!
+			if lsExplain[sld.hghidx].eval is not undefined
+				eval(lsExplain[sld.hghidx].eval)
+			else
+				lsExplain[sld.hghidx].enter!
 
 	scrollingTo = (i)-> $("body").scrollTop($ sld.dscrpts[i] .position!.top)
 
