@@ -1,12 +1,12 @@
 body {
-  background-color: #383636;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
 }
 svg text {
-  fill: #fff;
+  fill: #000;
 }
 #map {
-  width: 100%;
+  width: 68%;
   height: 500px;
   margin: 0;
   padding: 0;

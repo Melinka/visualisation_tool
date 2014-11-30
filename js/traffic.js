@@ -10,7 +10,7 @@ f = function(){
 };
 initCrossMap = function(csvUrl){
   var colorYellow, lngDim, latDim, projection, overlay, padding, mapOffset, weekDayTable, gPrints, monthDim, weekdayDim, hourDim, map;
-  colorYellow = "rgb(255, 204, 0)";
+  colorYellow = '#cc3333';
   lngDim = null;
   latDim = null;
   projection = null;
@@ -23,7 +23,7 @@ initCrossMap = function(csvUrl){
   weekdayDim = null;
   hourDim = null;
   map = null;
-  return d3.json("./mapstyle/dark.json", function(err, mapStyle){
+  return d3.json("./mapstyle/light.json", function(err, mapStyle){
     var styledMap, initMap, transform, ifdead, setCircle, initCircle, tranCircle, updateGraph;
     console.log(
     err);
@@ -33,7 +33,7 @@ initCrossMap = function(csvUrl){
     initMap = function(){
       map = new google.maps.Map(d3.select("#map").node(), {
         zoom: 5,
-        center: new google.maps.LatLng(-26.286732552048182, 38.082341826925811),
+        center: new google.maps.LatLng(-27.65218343624916, 25.821599639425813),
         scrollwheel: false,
         mapTypeControlOptions: {
           mapTypeId: [google.maps.MapTypeId.ROADMAP, 'map_style']
@@ -81,9 +81,7 @@ initCrossMap = function(csvUrl){
           return colorYellow;
         },
         "position": "absolute",
-        "opacity": function(){
-          return 0.3;
-        }
+        "opacity": 1
       });
     };
     initCircle = function(it){
@@ -220,6 +218,7 @@ initCrossMap = function(csvUrl){
       };
       focusMonthYear = function(it){
         if (_.isType('Array', it)) {
+          barAcciHour.filterAll();
           _.map(function(a){
             return barAcciHour.filter(a);
           })(

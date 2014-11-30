@@ -15,7 +15,8 @@ f = ->
 initCrossMap = (csvUrl)->
 	### TODO remove map style
 	### use canvas instead of SVG
-	colorYellow = "rgb(255, 204, 0)"
+	colorYellow = '#cc3333'
+		# "rgb(255, 204, 0)"
 	lngDim = null
 	latDim = null
 	projection = null
@@ -34,7 +35,8 @@ initCrossMap = (csvUrl)->
 
 	
 
-	err, mapStyle <- d3.json "./mapstyle/dark.json"
+	err, mapStyle <- d3.json "./mapstyle/light.json"
+	# "./mapstyle/dark.json"
 	err |> console.log 
 
 	styledMap = new google.maps.StyledMapType( mapStyle, {name: "Styled Map"})
@@ -42,7 +44,7 @@ initCrossMap = (csvUrl)->
 	initMap = -> 
 		map := new google.maps.Map(d3.select "\#map" .node!, {
 			zoom: 5,
-			center: new google.maps.LatLng(-26.286732552048182, 38.082341826925811),
+			center: new google.maps.LatLng(-27.65218343624916, 25.821599639425813),
 			scrollwheel: false,
 			mapTypeControlOptions:{
 				mapTypeId: [google.maps.MapTypeId.ROADMAP, 'map_style']
@@ -90,7 +92,8 @@ initCrossMap = (csvUrl)->
 		.style {
 			"fill": -> colorYellow
 			"position": "absolute"
-			"opacity": -> 0.3
+			"opacity": 1
+			# -> 0.3
 		}
 
 	initCircle = ->
@@ -313,6 +316,7 @@ initCrossMap = (csvUrl)->
 
 	focusMonthYear := ->
 		if _.is-type 'Array', it 
+			barAcciHour.filterAll!
 			it |> _.map (a)-> (barAcciHour.filter a)
 		else 
 			it |> barAcciHour.filter
@@ -351,9 +355,6 @@ buildNarrative = ->
 	csvData |> buildSlider
 	
 	 
-
-	
-
 Parse.initialize("0GI98IoEbwAmZb8zHw2hUj6TgA1M3af5rRKX6eUU", "CJV6NXQXXjCFQsO0vQnZMhGQ1J4I8anfLd7X9iNW")
 
 getURLParameter = (name)->

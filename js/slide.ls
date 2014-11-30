@@ -12,7 +12,8 @@ buildSlider = (lsExplain)->
 		updtBlackIdxDots = ->	
 			d3.selectAll ".idx"
 				.style {
-					"background-color": (it, i)-> if i is sld.hghidx then "white" else '#272727'
+					"background-color": (it, i)-> if i is sld.hghidx then "black" else "white"
+					# "white" else '#272727'
 				}
 		if i is not sld.hghidx
 			# d = if sld.hghidx < i then "d" else "u"
@@ -23,6 +24,7 @@ buildSlider = (lsExplain)->
 			sld.hghidx := i
 			updtBlackIdxDots!
 			# if d is "d" then lsExplain[sld.hghidx].enter2down! else lsExplain[sld.hghidx].enter2up!
+			lsExplain[sld.hghidx] 
 			if lsExplain[sld.hghidx].eval is not undefined
 				eval(lsExplain[sld.hghidx].eval)
 			else
