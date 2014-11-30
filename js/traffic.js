@@ -1,11 +1,16 @@
-var _, focusMonth, focusWeekDays, focusMonthYear, initCrossMap, lsExplain;
+var _, focusMonth, focusWeekDays, focusMonthYear, f, initCrossMap, buildNarrative, getURLParameter, objectId, Story, query;
 _ = require("prelude-ls");
 focusMonth = function(){};
 focusWeekDays = function(){};
 focusMonthYear = function(){};
-initCrossMap = function(){
+f = function(){
+  return d3.selectAll('#map').style({
+    "position": "fixed"
+  });
+};
+initCrossMap = function(csvUrl){
   var colorYellow, lngDim, latDim, projection, overlay, padding, mapOffset, weekDayTable, gPrints, monthDim, weekdayDim, hourDim, map;
-  colorYellow = "rgb(255, 204, 0)";
+  colorYellow = '#cc3333';
   lngDim = null;
   latDim = null;
   projection = null;
@@ -18,7 +23,7 @@ initCrossMap = function(){
   weekdayDim = null;
   hourDim = null;
   map = null;
-  return d3.json("./mapstyle/dark.json", function(err, mapStyle){
+  return d3.json("./mapstyle/light.json", function(err, mapStyle){
     var styledMap, initMap, transform, ifdead, setCircle, initCircle, tranCircle, updateGraph;
     console.log(
     err);
@@ -28,7 +33,7 @@ initCrossMap = function(){
     initMap = function(){
       map = new google.maps.Map(d3.select("#map").node(), {
         zoom: 5,
-        center: new google.maps.LatLng(-26.286732552048182, 38.082341826925811),
+        center: new google.maps.LatLng(-27.65218343624916, 25.821599639425813),
         scrollwheel: false,
         mapTypeControlOptions: {
           mapTypeId: [google.maps.MapTypeId.ROADMAP, 'map_style']
@@ -76,9 +81,7 @@ initCrossMap = function(){
           return colorYellow;
         },
         "position": "absolute",
-        "opacity": function(){
-          return 0.3;
-        }
+        "opacity": 1
       });
     };
     initCircle = function(it){
@@ -98,8 +101,8 @@ initCrossMap = function(){
       dt.enter().append("circle").call(setCircle);
       return dt.exit().remove();
     };
-    return d3.csv("./Sorted_Protest_Data_South_Africa.csv", function(err, tsvBody){
-      var barAcciMonth, barAcciWeekDay, barAcciHour, ndx, all, acciMonth, acciWeekDay, acciHour, barMt, barWk, barHr, marginMt, marginWk, marginHr, dm;
+    return d3.csv(csvUrl, function(err, tsvBody){
+      var barAcciMonth, barAcciWeekDay, barAcciHour, ndx, all, acciMonth, acciWeekDay, acciHour, barMt, barWk, barHr, marginMt, marginWk, marginHr, monthLs, monthTbl, dm;
       tsvBody.filter(function(it){
         var c, s;
         c = it.Coordinates;
@@ -177,7 +180,7 @@ initCrossMap = function(){
       acciHour = hourDim.group().reduceCount();
       barMt = 350;
       barWk = 270;
-      barHr = 650;
+      barHr = 450;
       marginMt = {
         "top": 10,
         "right": 10,
@@ -192,8 +195,10 @@ initCrossMap = function(){
       barAcciWeekDay.width(barWk).height(100).margins(marginWk).dimension(weekdayDim).group(acciWeekDay).x(d3.scale.ordinal().domain(weekDayTable)).xUnits(dc.units.ordinal).elasticY(true).colors(colorYellow).on("filtered", function(c, f){
         return updateGraph();
       }).yAxis().ticks(4);
-      dm = _.take(15)(
-      _.drop(12)(
+      monthLs = ["Jan.", "Feb.", "Mar.", "Apr.", "May", "Jun.", "Jul.", "Aug.", "Sep.", "Oct.", "Nov.", "Dec."];
+      monthTbl = _.listsToObj([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], monthLs);
+      dm = _.take(8)(
+      _.drop(18)(
       _.flatten(
       [2012, 2013, 2014].map(function(y){
         return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(function(m){
@@ -212,7 +217,16 @@ initCrossMap = function(){
         return dc.redrawAll();
       };
       focusMonthYear = function(it){
-        barAcciHour.filter(it);
+        if (_.isType('Array', it)) {
+          barAcciHour.filterAll();
+          _.map(function(a){
+            return barAcciHour.filter(a);
+          })(
+          it);
+        } else {
+          barAcciHour.filter(
+          it);
+        }
         return dc.redrawAll();
       };
       dc.renderAll();
@@ -220,27 +234,32 @@ initCrossMap = function(){
     });
   });
 };
-initCrossMap();
-lsExplain = [
-  {
-    "enter": function(){},
-    "text": "There are a lot of people"
-  }, {
-    "enter": function(){
-      return focusMonth(1);
-    },
-    "text": "The Majority of people comes from Europe."
-  }, {
-    "enter": function(){
-      return focusMonth(1);
-    },
-    "text": "Some other explanation."
-  }, {
-    "enter": function(){
-      return focusMonth(1);
-    },
-    "text": "Country Breakdown."
+buildNarrative = function(it){
+  return d3.tsv(it, function(err, csvData){
+    return buildSlider(
+    csvData);
+  });
+};
+Parse.initialize("0GI98IoEbwAmZb8zHw2hUj6TgA1M3af5rRKX6eUU", "CJV6NXQXXjCFQsO0vQnZMhGQ1J4I8anfLd7X9iNW");
+getURLParameter = function(name){
+  return _.split("id=")(
+  window.location.href)[1];
+};
+objectId = getURLParameter("id");
+Story = Parse.Object.extend("Story");
+query = new Parse.Query(Story);
+query.equalTo("objectId", objectId);
+query.find({
+  success: function(results){
+    var dataURL, storyURL;
+    dataURL = results[0].get("Data");
+    storyURL = results[0].get("Story");
+    initCrossMap(
+    dataURL);
+    return buildNarrative(
+    storyURL);
+  },
+  error: function(error){
+    return alert("Error: " + error.code + " " + error.message);
   }
-];
-buildSlider(
-lsExplain);
+});

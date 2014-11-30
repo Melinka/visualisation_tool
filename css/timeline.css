@@ -1,14 +1,14 @@
 body {
-  background-color: #272727;
+  background-color: #fff;
 }
 .axis path,
 .axis line {
   fill: none;
-  stroke: #fff;
+  stroke: #000;
   shape-rendering: crispEdges;
 }
 .axis text {
   font-family: sans-serif;
   font-size: 11px;
-  fill: #fff;
+  fill: #000;
 }

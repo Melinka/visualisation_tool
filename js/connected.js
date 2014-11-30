@@ -42,7 +42,7 @@ appendCircle = function(){
       "r": 0
     }).style({
       "fill": function(){
-        return colorbrewer["Oranges"][9][~~(Math.random() * 7 + 2)];
+        return colorbrewer["Reds"][9][~~(Math.random() * 5 + 2)];
       }
     }).attr({
       "r": f.dtsr
@@ -165,7 +165,7 @@ buildForce = function(){
   node = [];
   function tick(it){
     var k, q, i, n;
-    k = 1 * it.alpha;
+    k = 0.5 * it.alpha;
     f.data.forEach(function(o, i){
       o.y += (o.target.y - o.y) * k;
       return o.x += (o.target.x - o.x) * k;
