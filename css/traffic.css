@@ -1,17 +1,19 @@
 body {
-  background-color: #383636;
-  color: #fff;
+  background-color: white;
+  /*#383636;*/
 }
+
 svg text {
-  fill: #fff;
+  fill: #000;
 }
 #map {
-  width: 100%;
+  width: 68%;
   height: 500px;
   margin: 0;
   padding: 0;
   position: fixed;
 }
+
 .ctn-filter {
   width: 1100px;
 }
@@ -25,3 +27,23 @@ svg text {
 .ctnContainer {
   position: fixed;
 }
+
+#AcciWeekDay {
+  position: absolute;
+  left: -2%;
+  color: #000000;
+  font-size: 13px;
+}
+
+#AcciHour {
+  position: absolute;
+  left: 23%;
+  color: #000000;
+  font-size: 13px;
+}
+
+text {
+  color: #000000;
+}
+
+

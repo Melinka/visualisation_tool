@@ -48,13 +48,13 @@ appendCircle = function(){
       "r": f.dtsr
     }).call(f.updateModel);
     c.exit().transition().attr({
-      "r": 0
+      "r": 3
     }).remove();
     if (f.textload) {
       return c.enter().append("text").attr({
         "class": "clrnm"
       }).style({
-        "opacity": 0
+        "opacity": 1
       }).transition().style({
         "opacity": 1
       }).text(function(it){

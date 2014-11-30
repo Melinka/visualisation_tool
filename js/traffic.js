@@ -4,8 +4,8 @@ focusMonth = function(){};
 focusWeekDays = function(){};
 focusMonthYear = function(){};
 initCrossMap = function(){
-  var colorYellow, lngDim, latDim, projection, overlay, padding, mapOffset, weekDayTable, gPrints, monthDim, weekdayDim, hourDim, map;
-  colorYellow = "rgb(255, 204, 0)";
+  var colorRed, lngDim, latDim, projection, overlay, padding, mapOffset, weekDayTable, gPrints, monthDim, weekdayDim, hourDim, map;
+  colorRed = "#cc3333";
   lngDim = null;
   latDim = null;
   projection = null;
@@ -28,7 +28,7 @@ initCrossMap = function(){
     initMap = function(){
       map = new google.maps.Map(d3.select("#map").node(), {
         zoom: 5,
-        center: new google.maps.LatLng(-26.286732552048182, 38.082341826925811),
+        center: new google.maps.LatLng(-26.10047,28.011417),
         scrollwheel: false,
         mapTypeControlOptions: {
           mapTypeId: [google.maps.MapTypeId.ROADMAP, 'map_style']
@@ -73,11 +73,11 @@ initCrossMap = function(){
         }
       }).style({
         "fill": function(){
-          return colorYellow;
+          return colorRed;
         },
         "position": "absolute",
         "opacity": function(){
-          return 0.3;
+          return 1;
         }
       });
     };
@@ -186,10 +186,10 @@ initCrossMap = function(){
       };
       marginWk = marginMt;
       marginHr = marginMt;
-      barAcciMonth.width(barMt).height(100).margins(marginMt).dimension(monthDim).group(acciMonth).x(d3.scale.ordinal().domain(d3.range(1, 13))).xUnits(dc.units.ordinal).elasticY(true).colors(colorYellow).on("filtered", function(c, f){
+      barAcciMonth.width(barMt).height(100).margins(marginMt).dimension(monthDim).group(acciMonth).x(d3.scale.ordinal().domain(d3.range(1, 13))).xUnits(dc.units.ordinal).elasticY(true).colors(colorRed).on("filtered", function(c, f){
         return updateGraph();
       }).yAxis().ticks(4);
-      barAcciWeekDay.width(barWk).height(100).margins(marginWk).dimension(weekdayDim).group(acciWeekDay).x(d3.scale.ordinal().domain(weekDayTable)).xUnits(dc.units.ordinal).elasticY(true).colors(colorYellow).on("filtered", function(c, f){
+      barAcciWeekDay.width(barWk).height(100).margins(marginWk).dimension(weekdayDim).group(acciWeekDay).x(d3.scale.ordinal().domain(weekDayTable)).xUnits(dc.units.ordinal).elasticY(true).colors(colorRed).on("filtered", function(c, f){
         return updateGraph();
       }).yAxis().ticks(4);
       dm = _.take(15)(
@@ -200,7 +200,7 @@ initCrossMap = function(){
           return y + "_" + m;
         });
       }))));
-      barAcciHour.width(barHr).height(100).margins(marginHr).dimension(hourDim).group(acciHour).x(d3.scale.ordinal().domain(dm)).xUnits(dc.units.ordinal).elasticY(true).colors(colorYellow).on("filtered", function(c, f){
+      barAcciHour.width(barHr).height(100).margins(marginHr).dimension(hourDim).group(acciHour).x(d3.scale.ordinal().domain(dm)).xUnits(dc.units.ordinal).elasticY(true).colors(colorRed).on("filtered", function(c, f){
         return updateGraph();
       }).yAxis().ticks(4);
       focusMonth = function(it){
