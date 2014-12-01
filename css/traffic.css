@@ -28,3 +28,20 @@ svg text {
 #map {
   position: fixed;
 }
+
+.dscrptholder {
+
+    -moz-border-bottom-colors: red;
+    -moz-border-left-colors: red;
+    -moz-border-right-colors: red;
+    -moz-border-top-colors: red;
+    background-color: #cc3333;
+    border-bottom: 48px none red;
+    border-left: 42px none red;
+    border-right: 51px none;
+    left: 792px;
+    padding: 2%;
+    position: relative;
+    top: 125px;
+    width: 592px;
+}
