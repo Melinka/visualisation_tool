@@ -1,0 +1,98 @@
+Place	Gender	Occupation	Area
+Abu Dhabi	Decrease	Journalist	Military
+Abu Dhabi	Decrease	Developer	Military
+Algiers	Increase	Journalist	Education
+Algiers	Increase	Journalist	Education
+Algiers	Decrease	Journalist	Education
+Amman	Decrease	Journalist	Military
+Amman	Increase	Developer	Military
+Amman	Decrease	Journalist	Military
+Amman	Increase	Developer	Military
+Amman	Decrease	Developer	Military
+Amman	Increase	Journalist	Military
+Amsterdam	Decrease	Developer	Health
+Amsterdam	Decrease	Journalist	Health
+Atlanta	Increase	Developer	Finance
+Atlanta	Increase	Journalist	Finance
+Barcelona	Decrease	Developer	Health
+Beijing	Increase	Journalist	Military
+Beirut	Increase	Developer	Military
+Berlin	Decrease	Developer	Health
+Boston	Increase	Developer	Finance
+Boston	Decrease	Journalist	Finance
+Boston	Decrease	Journalist	Finance
+Bourdeaux	Increase	Journalist	Health
+Brasilia	Decrease	Developer	Finance
+Buenos Aires	Increase	Journalist	Finance
+Buenos Aires	Increase	Journalist	Finance
+Cairo	Decrease	Journalist	Military
+Calgary	Decrease	Journalist	Finance
+Capetown	Increase	Developer	Education
+Chicago	Increase	Journalist	Finance
+Chicago	Increase	Journalist	Finance
+Chicago	Increase	Developer	Finance
+Chicago	Increase	Developer	Finance
+Dhaka	Decrease	Journalist	Military
+Dubai	Decrease	Developer	Military
+Guatemala City	Increase	Developer	Finance
+Ioilo City	Increase	Journalist	Military
+Istanbul	Increase	Journalist	Military
+Johannesburg	Increase	Developer	Education
+Johannesburg	Decrease	Journalist	Education
+Kuala Lumpur	Increase	Developer	Military
+Lincoln	Increase	Developer	Finance
+London	Increase	Journalist	Health
+London	Decrease	Journalist	Health
+London	Increase	Journalist	Health
+London	Increase	Developer	Health
+London	Increase	Journalist	Health
+London	Decrease	Developer	Health
+London	Decrease	Journalist	Health
+London	Increase	Developer	Health
+Los Angeles	Decrease	Developer	Finance
+Manama	Increase	Journalist	Military
+Maputo	Decrease	Journalist	Education
+Mazini	Decrease	Journalist	Education
+Mexico City	Decrease	Developer	Finance
+Mexico City	Increase	Journalist	Finance
+Milan	Increase	Journalist	Health
+Milan	Decrease	Developer	Health
+Milan	Decrease	Developer	Health
+Milan	Increase	Journalist	Health
+Montreal	Increase	Journalist	Finance
+Moscow	Increase	Developer	Military
+Muscat	Decrease	Journalist	Military
+Nairobi	Increase	Journalist	Education
+Nairobi	Decrease	Journalist	Education
+Nairobi	Increase	Journalist	Education
+Nairobi	Decrease	Journalist	Education
+New York City	Increase	Developer	Finance
+New York City	Increase	Journalist	Finance
+New York City	Increase	Journalist	Finance
+New York City	Increase	Developer	Finance
+New York City	Decrease	Journalist	Finance
+Newark	Decrease	Journalist	Finance
+Nottingham	Decrease	Journalist	Health
+Paris	Increase	Journalist	Health
+Philadelphia	Decrease	Journalist	Finance
+Philadelphia	Increase	Journalist	Finance
+Reyjkiavik	Increase	Journalist	Health
+San Francisco	Increase	Developer	Finance
+San Francisco	Decrease	Journalist	Finance
+San Francisco	Decrease	Journalist	Finance
+San Francisco	Increase	Journalist	Finance
+San Jose	Decrease	Journalist	Finance
+Sao Paulo	Increase	Developer	Finance
+Singapore	Increase	Journalist	Military
+Stockholm	Increase	Journalist	Health
+Stockholm	Increase	Journalist	Health
+Sydney	Increase	Developer	Australia
+Taipei	Increase	Journalist	Military
+Tiblisi	Decrease	Developer	Military
+Tiblisi	Increase	Developer	Military
+Toronto	Increase	Developer	Finance
+Vancouver	Increase	Journalist	Finance
+Washington DC	Increase	Journalist	Finance
+Washington DC	Increase	Journalist	Finance
+Washington DC	Decrease	Developer	Finance
+Wroclaw	Increase	Journalist	Health

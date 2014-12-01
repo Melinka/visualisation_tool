@@ -58,7 +58,11 @@ appendCircle = function(){
       }).transition().style({
         "opacity": 1
       }).text(function(it){
-        return it.name;
+        if (it.name === "undefined" || it.name === undefined || it.name === null || it.name === "null") {
+          return "all";
+        } else {
+          return it.name;
+        }
       }).call(f.textModel);
     }
   };
@@ -290,7 +294,7 @@ hightlightGroup = function(name, selector){
   }
 };
 p = null;
-d3.tsv("dumpdata.tsv", function(err, tsvData){
+d3.tsv("./dumpdata.tsv", function(err, tsvData){
   var s, grouping, lsExplain;
   s = initSVG();
   grouping = function(it){
@@ -298,7 +302,7 @@ d3.tsv("dumpdata.tsv", function(err, tsvData){
   };
   lsExplain = [
     {
-      "enter": grouping("Place"),
+      "enter": grouping(null),
       "text": "There are a lot of people"
     }, {
       "enter": grouping("Area"),

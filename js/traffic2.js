@@ -9,7 +9,7 @@ f = function(){
   });
 };
 initCrossMap = function(csvUrl){
-  var colorYellow, lngDim, latDim, projection, overlay, padding, mapOffset, weekDayTable, gPrints, monthDim, weekdayDim, hourDim, map, monthLs, monthTbl, toYearMonth;
+  var colorYellow, lngDim, latDim, projection, overlay, padding, mapOffset, weekDayTable, gPrints, monthDim, weekdayDim, hourDim, map;
   colorYellow = "rgb(255, 204, 0)";
   lngDim = null;
   latDim = null;
@@ -23,21 +23,17 @@ initCrossMap = function(csvUrl){
   weekdayDim = null;
   hourDim = null;
   map = null;
-  monthLs = ["Jan.", "Feb.", "Mar.", "Apr.", "May", "Jun.", "Jul.", "Aug.", "Sep.", "Oct.", "Nov.", "Dec."];
-  monthTbl = _.listsToObj([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], monthLs);
-  toYearMonth = function(y, m){
-    return monthTbl[m] + " '" + _.Str.drop(2)(
-    y + "");
-  };
-  return d3.json("./mapstyle/dark2.json", function(err, mapStyle){
-    var styledMap, initMap, transform, ifdead, setCircle, initCircle, tranCircle, finalCircle, updateGraph;
+  return d3.json("./mapstyle/light.json", function(err, mapStyle){
+    var styledMap, initMap, transform, ifdead, setCircle, initCircle, tranCircle, updateGraph;
+    console.log(
+    err);
     styledMap = new google.maps.StyledMapType(mapStyle, {
       name: "Styled Map"
     });
     initMap = function(){
       map = new google.maps.Map(d3.select("#map").node(), {
-        zoom: 6,
-        center: new google.maps.LatLng(-29.50049956558744, 28.1287285456758131),
+        zoom: 5,
+        center: new google.maps.LatLng(-27.65218343624916, 25.821599639425813),
         scrollwheel: false,
         mapTypeControlOptions: {
           mapTypeId: [google.maps.MapTypeId.ROADMAP, 'map_style']
@@ -98,20 +94,17 @@ initCrossMap = function(csvUrl){
         "r": 20
       });
     };
-    finalCircle = function(it){
-      return it.attr({
-        "r": "5px"
-      });
-    };
     updateGraph = function(){
       var dt;
       dt = gPrints.selectAll("circle").data(monthDim.top(Infinity));
-      dt.call(setCircle).transition().call(tranCircle).transition().call(finalCircle);
-      dt.enter().append("circle").call(setCircle).transition().call(tranCircle).transition().call(finalCircle);
+      dt.call(initCircle).transition().call(tranCircle).transition().attr({
+        "r": "5px"
+      });
+      dt.enter().append("circle").call(initCircle).transition().call(tranCircle);
       return dt.exit().remove();
     };
     return d3.csv(csvUrl, function(err, tsvBody){
-      var barAcciMonth, barAcciWeekDay, barAcciHour, ndx, all, acciMonth, acciWeekDay, acciHour, barMt, barWk, barHr, marginMt, marginWk, marginHr, dm, b, adaptYearMonth;
+      var barAcciMonth, barAcciWeekDay, barAcciHour, ndx, all, acciMonth, acciWeekDay, acciHour, barMt, barWk, barHr, marginMt, marginWk, marginHr, monthLs, monthTbl, dm;
       tsvBody.filter(function(it){
         var c, s;
         c = it.Coordinates;
@@ -122,7 +115,6 @@ initCrossMap = function(csvUrl){
         it.month = it.date.getMonth() + 1;
         it.hour = it.date.getHours();
         it.year = it.date.getFullYear();
-        it.monthyear = toYearMonth(it.year, it.month);
         it.week = weekDayTable[it.date.getDay()];
         return true;
       });
@@ -177,7 +169,7 @@ initCrossMap = function(csvUrl){
         return it.week;
       });
       hourDim = ndx.dimension(function(it){
-        return it.monthyear;
+        return it.year + "_" + it.month;
       });
       lngDim = ndx.dimension(function(it){
         return it.GoogleLng;
@@ -205,19 +197,19 @@ initCrossMap = function(csvUrl){
       barAcciWeekDay.width(barWk).height(100).margins(marginWk).dimension(weekdayDim).group(acciWeekDay).x(d3.scale.ordinal().domain(weekDayTable)).xUnits(dc.units.ordinal).elasticY(true).colors(colorYellow).on("filtered", function(c, f){
         return updateGraph();
       }).yAxis().ticks(4);
+      monthLs = ["Jan.", "Feb.", "Mar.", "Apr.", "May", "Jun.", "Jul.", "Aug.", "Sep.", "Oct.", "Nov.", "Dec."];
+      monthTbl = _.listsToObj([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], monthLs);
       dm = _.take(8)(
       _.drop(18)(
       _.flatten(
       [2012, 2013, 2014].map(function(y){
         return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(function(m){
-          return toYearMonth(y, m);
+          return y + "_" + m;
         });
       }))));
-      b = barAcciHour.width(barHr).height(100).margins(marginHr).dimension(hourDim).group(acciHour).elasticY(true).colors(colorYellow).on("filtered", function(c, f){
+      barAcciHour.width(barHr).height(100).margins(marginHr).dimension(hourDim).group(acciHour).x(d3.scale.ordinal().domain(dm)).xUnits(dc.units.ordinal).elasticY(true).colors(colorYellow).on("filtered", function(c, f){
         return updateGraph();
-      });
-      b.x(d3.scale.ordinal().domain(dm)).xUnits(dc.units.ordinal).xAxis();
-      b.yAxis().ticks(4);
+      }).yAxis().ticks(4);
       focusMonth = function(it){
         barAcciMonth.filter(it);
         return dc.redrawAll();
@@ -226,16 +218,11 @@ initCrossMap = function(csvUrl){
         barAcciWeekDay.filter(it);
         return dc.redrawAll();
       };
-      adaptYearMonth = function(a){
-        var s;
-        s = a.split("_");
-        return toYearMonth(s[0], s[1]);
-      };
       focusMonthYear = function(it){
         if (_.isType('Array', it)) {
           barAcciHour.filterAll();
           _.map(function(a){
-            return barAcciHour.filter(adaptYearMonth(a));
+            return barAcciHour.filter(a);
           })(
           it);
         } else {

@@ -34,20 +34,42 @@ initCrossMap = (csvUrl)->
 	map = null
 	# barAcciHour = null
 
-	monthLs = ["Jan.", "Feb.", "Mar.", "Apr.", "May", "Jun.", "Jul.", "Aug.", "Sep.", "Oct.", "Nov.", "Dec."]
-	monthTbl = _.lists-to-obj [1 to 12], monthLs
-	toYearMonth = (y, m)->
-		monthTbl[m] + " '" + (y + "" |> _.Str.drop 2)
-
 	
 
-	err, mapStyle <- d3.json "./mapstyle/dark2.json"
+	# err, mapStyle <- d3.json "./mapstyle/dark2.json"
+	# err, mapStyle <- d3.json "./mapstyle/dark.json"
+	err, mapStyle <- d3.json "./mapstyle/light.json"
+	# err, mapStyle <- d3.json "./mapstyle/dark.json"
+	# err, mapStyle <- d3.json "./mapstyle/argegno.json"
+	# err, mapStyle <- d3.json "./mapstyle/bently.json"
+	# err, mapStyle <- d3.json "./mapstyle/monochrome.json"
+	# err, mapStyle <- d3.json "./mapstyle/paper.json"
+	# err, mapStyle <- d3.json "./mapstyle/retro_no_label.json"
+	# err, mapStyle <- d3.json "./mapstyle/turquoise.json"
+	
+
+	
+	# "./mapstyle/dark.json"
+
+# 	argegno.json
+# bently.json
+# dark.json
+# light.json
+# monochrome.json
+# paper_light.json
+# paper.json
+# retro_no_label.json
+# retro.json
+# subtle.json
+# turquoise.json
+	err |> console.log 
+
 	styledMap = new google.maps.StyledMapType( mapStyle, {name: "Styled Map"})
 
 	initMap = -> 
 		map := new google.maps.Map(d3.select "\#map" .node!, {
-			zoom: 6,
-			center: new google.maps.LatLng(-29.50049956558744, 28.1287285456758131),
+			zoom: 5,
+			center: new google.maps.LatLng(-27.65218343624916, 25.821599639425813),
 			scrollwheel: false,
 			mapTypeControlOptions:{
 				mapTypeId: [google.maps.MapTypeId.ROADMAP, 'map_style']
@@ -91,13 +113,11 @@ initCrossMap = (csvUrl)->
 			"cx": -> it.coorx
 			"cy": -> it.coory
 			"r": -> "5px"
-			# ifdead it, "5px", "2.5px"
 		}
 		.style {
 			"fill": -> colorYellow
 			"position": "absolute"
 			"opacity": 0.3
-			# -> 0.3
 		}
 
 	initCircle = ->
@@ -112,13 +132,9 @@ initCrossMap = (csvUrl)->
 		it.attr {
 			"r": 20
 		}
-
-	finalCircle = ->
-		it.attr {
-			"r": "5px"
-		}
-
-
+		# it.style {
+		# 	"opacity": -> 0.3
+		# }
 
 	updateGraph = ->
 
@@ -126,24 +142,32 @@ initCrossMap = (csvUrl)->
 			.data monthDim.top(Infinity)
 
 		dt
-			.call setCircle
+			# .call setCircle
+			.call initCircle
 			.transition!
+			# .duration 1000
 			.call tranCircle
 			.transition!
-			.call finalCircle
-			
+			.attr {
+				"r": "5px"
+			}
+			# .style {
+			# 	"opacity": 1
+			# }
 		
 		dt
 			.enter!
 			.append "circle"
-			.call setCircle
+			# .call setCircle
+			.call initCircle
 			.transition!
+			# .duration 3000
 			.call tranCircle
-			.transition!
-			.call finalCircle
 
 		dt
 			.exit!
+			# .transition!
+			# .call initCircle
 			.remove!
 
 
@@ -163,7 +187,6 @@ initCrossMap = (csvUrl)->
 		it.hour = it.date.getHours!
 		it.year = it.date.getFullYear!
 
-		it.monthyear = toYearMonth it.year, it.month
 		
 		it.week = weekDayTable[it.date.getDay!]
 		true
@@ -241,8 +264,7 @@ initCrossMap = (csvUrl)->
 
 	monthDim := ndx.dimension( ->	it.month)
 	weekdayDim := ndx.dimension( -> it.week )
-	hourDim := ndx.dimension(-> it.monthyear)
-	# ( -> it.year + "_" + it.month)
+	hourDim := ndx.dimension( -> it.year + "_" + it.month)
 		# it.hour )
 
 	lngDim := ndx.dimension( -> it.GoogleLng )
@@ -295,28 +317,23 @@ initCrossMap = (csvUrl)->
 		.yAxis!
 		.ticks(4)
 
-	# dm = ([2012 to 2014].map (y)-> [1 to 12].map (m)-> (y + "_" + m) ) |> _.flatten |> _.drop 18 |> _.take 8
-	dm = ([2012 to 2014].map (y)-> [1 to 12].map (m)-> toYearMonth y, m ) |> _.flatten |> _.drop 18 |> _.take 8
+	monthLs = ["Jan.", "Feb.", "Mar.", "Apr.", "May", "Jun.", "Jul.", "Aug.", "Sep.", "Oct.", "Nov.", "Dec."]
+	monthTbl = _.lists-to-obj [1 to 12], monthLs
+	# monthTbl[m]
 
-	b = barAcciHour.width(barHr)
+	dm = ([2012 to 2014].map (y)-> [1 to 12].map (m)-> (y + "_" + m) ) |> _.flatten |> _.drop 18 |> _.take 8
+
+	barAcciHour.width(barHr)
 		.height(100)
 		.margins(marginHr)
 		.dimension(hourDim)
 		.group(acciHour)
+		# .x(d3.scale.linear!.domain([0, 24]))
+		.x(d3.scale.ordinal!.domain(dm))
+		.xUnits(dc.units.ordinal)
 		.elasticY(true)
 		.colors(colorYellow)
 		.on("filtered", (c, f)-> updateGraph!)
-
-	b
-		.x(d3.scale.ordinal!.domain(dm))
-		.xUnits(dc.units.ordinal)
-		.xAxis!
-		# .tickFormat -> 
-		# 	s = it.split "_"
-		# 	monthTbl[s[1]] + "'" + (s[0] |> _.drop 2 )
-		# 	"hi"
-
-	b
 		.yAxis!
 		.ticks(4)
 
@@ -329,20 +346,40 @@ initCrossMap = (csvUrl)->
 		barAcciWeekDay.filter it
 		dc.redrawAll!
 
-	adaptYearMonth = (a)->
-		s = a.split "_"
-		toYearMonth s[0], s[1]
-
 	focusMonthYear := ->
 		if _.is-type 'Array', it 
 			barAcciHour.filterAll!
-			it |> _.map (a)-> 
-				(barAcciHour.filter adaptYearMonth a)
+			it |> _.map (a)-> (barAcciHour.filter a)
 		else 
 			it |> barAcciHour.filter
 		dc.redrawAll!
 	dc.renderAll!
 	initMap!
+
+
+
+
+
+# lsExplain = [
+# 	{
+# 		"enter": (->)
+# 		"text": "There are a lot of people"
+# 	}
+# 	{
+# 		"enter": (-> focusMonth 1)
+# 		"text": "The Majority of people comes from Europe."
+# 	}
+# 	{
+# 		"enter": (-> focusMonth 1)
+# 		"text": "Some other explanation."
+# 	}
+# 	{
+# 		"enter": (-> focusMonth 1)
+# 		"text": "Country Breakdown."
+# 	}
+# ]
+
+# # lsExplain |> buildSlider
 
 
 buildNarrative = ->

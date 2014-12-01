@@ -49,14 +49,11 @@ appendCircle = ->
 			.enter!
 			.append "circle"
 			.attr {
-				# "fill": (it, i)-> it.color
 				"class": (it, i)-> f.selector
-					# "calldots"
 				"r": 0
 			}
 			.style {
 				"fill": ->colorbrewer["Reds"][9][~~(Math.random! * 5 + 2)]
-				# "white"
 			}
 ## use the transition on the call side; so that it will send data instead of transition
 			## .transition!
@@ -88,7 +85,8 @@ appendCircle = ->
 				.style {
 					"opacity": 1
 				}
-				.text -> it.name
+				.text -> 
+					if (it.name is "undefined") or (it.name is undefined) or (it.name is null) or (it.name is "null") then "all" else it.name
 				.call f.textModel
 
 
@@ -287,10 +285,11 @@ hightlightGroup = (name, selector)->
 
 p = null
 
-err, tsvData <- d3.tsv "dumpdata.tsv"
+err, tsvData <- d3.tsv "./dumpdata.tsv"
 
 s = initSVG!
 grouping = ->
+	
 	appendCircle!
 		.svg s
 		.data tsvData 
@@ -298,7 +297,7 @@ grouping = ->
 
 lsExplain = [
 	{
-		"enter": grouping "Place"
+		"enter": grouping null
 		"text": "There are a lot of people"
 	}
 	{

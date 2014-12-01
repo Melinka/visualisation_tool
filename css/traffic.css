@@ -1,22 +1,26 @@
 body {
-  background-color: #fff;
-  color: #000;
+  background-color: #1b1b1b;
+  color: #fff;
 }
 svg text {
-  fill: #000;
+  fill: #808080;
 }
 #map {
-  width: 68%;
-  height: 500px;
+  width: 1200px;
+  height: 800px;
   margin: 0;
   padding: 0;
   position: fixed;
 }
 .ctn-filter {
   width: 1100px;
+  top: -140px;
 }
-.filter {
+.right-filter {
   margin-left: 20px;
+}
+.left-filter {
+  margin-left: -20px;
 }
 #DeathMonth,
 #AcciMonth {
@@ -24,7 +28,14 @@ svg text {
 }
 .ctnContainer {
   position: fixed;
+  top: 0px;
 }
-#map {
+.iamGrey {
+  width: 600px;
+  height: 800px;
   position: fixed;
+  top: 0px;
+  left: 900px;
+  background-color: #1b1b1b;
+  z-index: 1;
 }

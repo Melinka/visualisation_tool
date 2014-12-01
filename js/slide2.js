@@ -11,9 +11,9 @@ buildSlider = function(lsExplain){
       return d3.selectAll(".idx").style({
         "background-color": function(it, i){
           if (i === sld.hghidx) {
-            return "white";
-          } else {
             return '#1B1B1B';
+          } else {
+            return "white";
           }
         }
       });
@@ -21,8 +21,7 @@ buildSlider = function(lsExplain){
     if (i !== sld.hghidx) {
       sld.hghidx = i;
       updtBlackIdxDots();
-      console.log(
-      lsExplain[sld.hghidx].eval);
+      lsExplain[sld.hghidx];
       if (lsExplain[sld.hghidx].eval !== undefined) {
         return eval(lsExplain[sld.hghidx].eval);
       } else {
@@ -71,6 +70,7 @@ buildSlider = function(lsExplain){
     });
   };
   initSlider();
+  scrolling();
   return $(window).scroll(function(){
     return scrolling();
   });

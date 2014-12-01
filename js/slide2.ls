@@ -12,7 +12,7 @@ buildSlider = (lsExplain)->
 		updtBlackIdxDots = ->	
 			d3.selectAll ".idx"
 				.style {
-					"background-color": (it, i)-> if i is sld.hghidx then "white" else '#1B1B1B'
+					"background-color": (it, i)-> if i is sld.hghidx then '#1B1B1B' else "white"
 				}
 		if i is not sld.hghidx
 			# d = if sld.hghidx < i then "d" else "u"
@@ -23,7 +23,7 @@ buildSlider = (lsExplain)->
 			sld.hghidx := i
 			updtBlackIdxDots!
 			# if d is "d" then lsExplain[sld.hghidx].enter2down! else lsExplain[sld.hghidx].enter2up!
-			lsExplain[sld.hghidx].eval |> console.log  
+			lsExplain[sld.hghidx] 
 			if lsExplain[sld.hghidx].eval is not undefined
 				eval(lsExplain[sld.hghidx].eval)
 			else
@@ -77,6 +77,6 @@ buildSlider = (lsExplain)->
 					1
 
 	initSlider!
-	# scrolling!
+	scrolling!
 	$ window .scroll -> scrolling!
 	
