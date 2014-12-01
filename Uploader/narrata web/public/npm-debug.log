@@ -1,0 +1,482 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '--save-dev',
+1 verbose cli   'gulp',
+1 verbose cli   'gulp-util',
+1 verbose cli   'Livescript',
+1 verbose cli   'gulp-livescript',
+1 verbose cli   'gulp-uglify',
+1 verbose cli   'gulp-rename' ]
+2 info using npm@1.3.11
+3 info using node@v0.10.21
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 verbose cache add [ 'gulp', null ]
+6 verbose cache add name=undefined spec="gulp" args=["gulp",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'gulp',
+7 verbose parsed url   path: 'gulp',
+7 verbose parsed url   href: 'gulp' }
+8 verbose cache add [ 'gulp-util', null ]
+9 verbose cache add name=undefined spec="gulp-util" args=["gulp-util",null]
+10 verbose parsed url { protocol: null,
+10 verbose parsed url   slashes: null,
+10 verbose parsed url   auth: null,
+10 verbose parsed url   host: null,
+10 verbose parsed url   port: null,
+10 verbose parsed url   hostname: null,
+10 verbose parsed url   hash: null,
+10 verbose parsed url   search: null,
+10 verbose parsed url   query: null,
+10 verbose parsed url   pathname: 'gulp-util',
+10 verbose parsed url   path: 'gulp-util',
+10 verbose parsed url   href: 'gulp-util' }
+11 verbose cache add [ 'Livescript', null ]
+12 verbose cache add name=undefined spec="Livescript" args=["Livescript",null]
+13 verbose parsed url { protocol: null,
+13 verbose parsed url   slashes: null,
+13 verbose parsed url   auth: null,
+13 verbose parsed url   host: null,
+13 verbose parsed url   port: null,
+13 verbose parsed url   hostname: null,
+13 verbose parsed url   hash: null,
+13 verbose parsed url   search: null,
+13 verbose parsed url   query: null,
+13 verbose parsed url   pathname: 'Livescript',
+13 verbose parsed url   path: 'Livescript',
+13 verbose parsed url   href: 'Livescript' }
+14 verbose cache add [ 'gulp-livescript', null ]
+15 verbose cache add name=undefined spec="gulp-livescript" args=["gulp-livescript",null]
+16 verbose parsed url { protocol: null,
+16 verbose parsed url   slashes: null,
+16 verbose parsed url   auth: null,
+16 verbose parsed url   host: null,
+16 verbose parsed url   port: null,
+16 verbose parsed url   hostname: null,
+16 verbose parsed url   hash: null,
+16 verbose parsed url   search: null,
+16 verbose parsed url   query: null,
+16 verbose parsed url   pathname: 'gulp-livescript',
+16 verbose parsed url   path: 'gulp-livescript',
+16 verbose parsed url   href: 'gulp-livescript' }
+17 verbose cache add [ 'gulp-uglify', null ]
+18 verbose cache add name=undefined spec="gulp-uglify" args=["gulp-uglify",null]
+19 verbose parsed url { protocol: null,
+19 verbose parsed url   slashes: null,
+19 verbose parsed url   auth: null,
+19 verbose parsed url   host: null,
+19 verbose parsed url   port: null,
+19 verbose parsed url   hostname: null,
+19 verbose parsed url   hash: null,
+19 verbose parsed url   search: null,
+19 verbose parsed url   query: null,
+19 verbose parsed url   pathname: 'gulp-uglify',
+19 verbose parsed url   path: 'gulp-uglify',
+19 verbose parsed url   href: 'gulp-uglify' }
+20 verbose cache add [ 'gulp-rename', null ]
+21 verbose cache add name=undefined spec="gulp-rename" args=["gulp-rename",null]
+22 verbose parsed url { protocol: null,
+22 verbose parsed url   slashes: null,
+22 verbose parsed url   auth: null,
+22 verbose parsed url   host: null,
+22 verbose parsed url   port: null,
+22 verbose parsed url   hostname: null,
+22 verbose parsed url   hash: null,
+22 verbose parsed url   search: null,
+22 verbose parsed url   query: null,
+22 verbose parsed url   pathname: 'gulp-rename',
+22 verbose parsed url   path: 'gulp-rename',
+22 verbose parsed url   href: 'gulp-rename' }
+23 silly lockFile 9750c68d-gulp gulp
+24 verbose lock gulp C:\Users\John\AppData\Roaming\npm-cache\9750c68d-gulp.lock
+25 silly lockFile 77fa12e5-gulp-util gulp-util
+26 verbose lock gulp-util C:\Users\John\AppData\Roaming\npm-cache\77fa12e5-gulp-util.lock
+27 silly lockFile f90255e4-Livescript Livescript
+28 verbose lock Livescript C:\Users\John\AppData\Roaming\npm-cache\f90255e4-Livescript.lock
+29 silly lockFile 78efe477-gulp-livescript gulp-livescript
+30 verbose lock gulp-livescript C:\Users\John\AppData\Roaming\npm-cache\78efe477-gulp-livescript.lock
+31 silly lockFile 15fab96b-gulp-uglify gulp-uglify
+32 verbose lock gulp-uglify C:\Users\John\AppData\Roaming\npm-cache\15fab96b-gulp-uglify.lock
+33 silly lockFile 8ff38cb7-gulp-rename gulp-rename
+34 verbose lock gulp-rename C:\Users\John\AppData\Roaming\npm-cache\8ff38cb7-gulp-rename.lock
+35 silly lockFile 77fa12e5-gulp-util gulp-util
+36 silly lockFile 77fa12e5-gulp-util gulp-util
+37 silly lockFile 9750c68d-gulp gulp
+38 silly lockFile 9750c68d-gulp gulp
+39 silly lockFile f90255e4-Livescript Livescript
+40 silly lockFile f90255e4-Livescript Livescript
+41 silly lockFile 78efe477-gulp-livescript gulp-livescript
+42 silly lockFile 78efe477-gulp-livescript gulp-livescript
+43 verbose addNamed [ 'gulp-util', '' ]
+44 verbose addNamed [ null, '*' ]
+45 silly lockFile ecd61fb3-gulp-util gulp-util@
+46 verbose lock gulp-util@ C:\Users\John\AppData\Roaming\npm-cache\ecd61fb3-gulp-util.lock
+47 silly lockFile 15fab96b-gulp-uglify gulp-uglify
+48 silly lockFile 15fab96b-gulp-uglify gulp-uglify
+49 silly lockFile 8ff38cb7-gulp-rename gulp-rename
+50 silly lockFile 8ff38cb7-gulp-rename gulp-rename
+51 verbose addNamed [ 'gulp', '' ]
+52 verbose addNamed [ null, '*' ]
+53 silly lockFile 72f4391e-gulp gulp@
+54 verbose lock gulp@ C:\Users\John\AppData\Roaming\npm-cache\72f4391e-gulp.lock
+55 verbose addNamed [ 'Livescript', '' ]
+56 verbose addNamed [ null, '*' ]
+57 silly lockFile 12b9634a-Livescript Livescript@
+58 verbose lock Livescript@ C:\Users\John\AppData\Roaming\npm-cache\12b9634a-Livescript.lock
+59 verbose addNamed [ 'gulp-livescript', '' ]
+60 verbose addNamed [ null, '*' ]
+61 silly lockFile 4da3c171-gulp-livescript gulp-livescript@
+62 verbose lock gulp-livescript@ C:\Users\John\AppData\Roaming\npm-cache\4da3c171-gulp-livescript.lock
+63 verbose addNamed [ 'gulp-uglify', '' ]
+64 verbose addNamed [ null, '*' ]
+65 silly lockFile 044a9113-gulp-uglify gulp-uglify@
+66 verbose lock gulp-uglify@ C:\Users\John\AppData\Roaming\npm-cache\044a9113-gulp-uglify.lock
+67 verbose addNamed [ 'gulp-rename', '' ]
+68 verbose addNamed [ null, '*' ]
+69 silly lockFile 81aa0665-gulp-rename gulp-rename@
+70 verbose lock gulp-rename@ C:\Users\John\AppData\Roaming\npm-cache\81aa0665-gulp-rename.lock
+71 silly addNameRange { name: 'gulp-util', range: '*', hasData: false }
+72 silly addNameRange { name: 'gulp', range: '*', hasData: false }
+73 silly addNameRange { name: 'gulp-livescript', range: '*', hasData: false }
+74 silly addNameRange { name: 'Livescript', range: '*', hasData: false }
+75 silly addNameRange { name: 'gulp-uglify', range: '*', hasData: false }
+76 silly addNameRange { name: 'gulp-rename', range: '*', hasData: false }
+77 verbose url raw Livescript
+78 verbose url resolving [ 'https://registry.npmjs.org/', './Livescript' ]
+79 verbose url resolved https://registry.npmjs.org/Livescript
+80 info trying registry request attempt 1 at 13:13:12
+81 http GET https://registry.npmjs.org/Livescript
+82 verbose url raw gulp-util
+83 verbose url resolving [ 'https://registry.npmjs.org/', './gulp-util' ]
+84 verbose url resolved https://registry.npmjs.org/gulp-util
+85 info trying registry request attempt 1 at 13:13:12
+86 verbose etag "A72WMRN78BOGBZDM3EZXA0X5F"
+87 http GET https://registry.npmjs.org/gulp-util
+88 verbose url raw gulp-livescript
+89 verbose url resolving [ 'https://registry.npmjs.org/', './gulp-livescript' ]
+90 verbose url resolved https://registry.npmjs.org/gulp-livescript
+91 info trying registry request attempt 1 at 13:13:12
+92 verbose etag "DVRM11W3Z8WXTIJIS4HB81OND"
+93 http GET https://registry.npmjs.org/gulp-livescript
+94 verbose url raw gulp
+95 verbose url resolving [ 'https://registry.npmjs.org/', './gulp' ]
+96 verbose url resolved https://registry.npmjs.org/gulp
+97 info trying registry request attempt 1 at 13:13:12
+98 verbose etag "86NT4MJRHTZ109XKJ21MDRV0W"
+99 http GET https://registry.npmjs.org/gulp
+100 verbose url raw gulp-uglify
+101 verbose url resolving [ 'https://registry.npmjs.org/', './gulp-uglify' ]
+102 verbose url resolved https://registry.npmjs.org/gulp-uglify
+103 info trying registry request attempt 1 at 13:13:12
+104 verbose etag "EIUV7SHGLTQ28UZE0ERO3NFTO"
+105 http GET https://registry.npmjs.org/gulp-uglify
+106 verbose url raw gulp-rename
+107 verbose url resolving [ 'https://registry.npmjs.org/', './gulp-rename' ]
+108 verbose url resolved https://registry.npmjs.org/gulp-rename
+109 info trying registry request attempt 1 at 13:13:12
+110 verbose etag "5PJ1JG3W1FLXL54BFMAJ42UVK"
+111 http GET https://registry.npmjs.org/gulp-rename
+112 http 304 https://registry.npmjs.org/gulp-livescript
+113 silly registry.get cb [ 304,
+113 silly registry.get   { date: 'Sun, 30 Nov 2014 10:13:13 GMT',
+113 silly registry.get     server: 'Apache',
+113 silly registry.get     via: '1.1 varnish',
+113 silly registry.get     'last-modified': 'Sun, 30 Nov 2014 10:13:13 GMT',
+113 silly registry.get     'cache-control': 'max-age=60',
+113 silly registry.get     etag: '"DVRM11W3Z8WXTIJIS4HB81OND"',
+113 silly registry.get     age: '38',
+113 silly registry.get     'x-served-by': 'cache-lcy1122-LCY',
+113 silly registry.get     'x-cache': 'HIT',
+113 silly registry.get     'x-cache-hits': '1',
+113 silly registry.get     'x-timer': 'S1417342393.668041,VS0,VE0',
+113 silly registry.get     vary: 'Accept',
+113 silly registry.get     'content-length': '0',
+113 silly registry.get     'keep-alive': 'timeout=10, max=50',
+113 silly registry.get     connection: 'Keep-Alive' } ]
+114 verbose etag gulp-livescript from cache
+115 http 304 https://registry.npmjs.org/gulp-uglify
+116 silly registry.get cb [ 304,
+116 silly registry.get   { date: 'Sun, 30 Nov 2014 10:13:13 GMT',
+116 silly registry.get     server: 'Apache',
+116 silly registry.get     via: '1.1 varnish',
+116 silly registry.get     'last-modified': 'Sun, 30 Nov 2014 10:13:13 GMT',
+116 silly registry.get     'cache-control': 'max-age=60',
+116 silly registry.get     etag: '"EIUV7SHGLTQ28UZE0ERO3NFTO"',
+116 silly registry.get     age: '43',
+116 silly registry.get     'x-served-by': 'cache-lcy1124-LCY',
+116 silly registry.get     'x-cache': 'HIT',
+116 silly registry.get     'x-cache-hits': '1',
+116 silly registry.get     'x-timer': 'S1417342393.656308,VS0,VE0',
+116 silly registry.get     vary: 'Accept',
+116 silly registry.get     'content-length': '0',
+116 silly registry.get     'keep-alive': 'timeout=10, max=50',
+116 silly registry.get     connection: 'Keep-Alive' } ]
+117 verbose etag gulp-uglify from cache
+118 http 304 https://registry.npmjs.org/gulp-util
+119 silly registry.get cb [ 304,
+119 silly registry.get   { date: 'Sun, 30 Nov 2014 10:13:13 GMT',
+119 silly registry.get     server: 'Apache',
+119 silly registry.get     via: '1.1 varnish',
+119 silly registry.get     'last-modified': 'Sun, 30 Nov 2014 10:13:13 GMT',
+119 silly registry.get     'cache-control': 'max-age=60',
+119 silly registry.get     etag: '"A72WMRN78BOGBZDM3EZXA0X5F"',
+119 silly registry.get     age: '1',
+119 silly registry.get     'x-served-by': 'cache-fra1239-FRA',
+119 silly registry.get     'x-cache': 'HIT',
+119 silly registry.get     'x-cache-hits': '1',
+119 silly registry.get     'x-timer': 'S1417342393.658290,VS0,VE0',
+119 silly registry.get     vary: 'Accept',
+119 silly registry.get     'content-length': '0',
+119 silly registry.get     'keep-alive': 'timeout=10, max=50',
+119 silly registry.get     connection: 'Keep-Alive' } ]
+120 verbose etag gulp-util from cache
+121 silly addNameRange number 2 { name: 'gulp-uglify', range: '*', hasData: true }
+122 silly addNameRange versions [ 'gulp-uglify',
+122 silly addNameRange   [ '0.0.1',
+122 silly addNameRange     '0.0.3',
+122 silly addNameRange     '0.0.4',
+122 silly addNameRange     '0.1.0',
+122 silly addNameRange     '0.2.0',
+122 silly addNameRange     '0.2.1',
+122 silly addNameRange     '0.3.0',
+122 silly addNameRange     '0.3.1',
+122 silly addNameRange     '0.3.2',
+122 silly addNameRange     '1.0.0-0',
+122 silly addNameRange     '1.0.0',
+122 silly addNameRange     '1.0.1' ] ]
+123 verbose addNamed [ 'gulp-uglify', '1.0.1' ]
+124 verbose addNamed [ '1.0.1', '1.0.1' ]
+125 silly lockFile cef7c707-gulp-uglify-1-0-1 gulp-uglify@1.0.1
+126 verbose lock gulp-uglify@1.0.1 C:\Users\John\AppData\Roaming\npm-cache\cef7c707-gulp-uglify-1-0-1.lock
+127 silly addNameRange number 2 { name: 'gulp-livescript', range: '*', hasData: true }
+128 silly addNameRange versions [ 'gulp-livescript',
+128 silly addNameRange   [ '0.0.12',
+128 silly addNameRange     '0.1.1',
+128 silly addNameRange     '0.1.2',
+128 silly addNameRange     '0.2.0',
+128 silly addNameRange     '0.2.1',
+128 silly addNameRange     '0.3.0',
+128 silly addNameRange     '1.0.0',
+128 silly addNameRange     '1.0.1',
+128 silly addNameRange     '1.0.2',
+128 silly addNameRange     '1.0.3',
+128 silly addNameRange     '1.1.0',
+128 silly addNameRange     '1.2.0',
+128 silly addNameRange     '1.2.1',
+128 silly addNameRange     '1.3.0',
+128 silly addNameRange     '2.0.0',
+128 silly addNameRange     '2.1.0',
+128 silly addNameRange     '2.1.1',
+128 silly addNameRange     '2.2.0',
+128 silly addNameRange     '2.2.1',
+128 silly addNameRange     '2.3.0' ] ]
+129 verbose addNamed [ 'gulp-livescript', '2.3.0' ]
+130 verbose addNamed [ '2.3.0', '2.3.0' ]
+131 silly lockFile bcb21bd2-gulp-livescript-2-3-0 gulp-livescript@2.3.0
+132 verbose lock gulp-livescript@2.3.0 C:\Users\John\AppData\Roaming\npm-cache\bcb21bd2-gulp-livescript-2-3-0.lock
+133 silly addNameRange number 2 { name: 'gulp-util', range: '*', hasData: true }
+134 silly addNameRange versions [ 'gulp-util',
+134 silly addNameRange   [ '0.0.1',
+134 silly addNameRange     '1.0.0',
+134 silly addNameRange     '1.1.0',
+134 silly addNameRange     '1.1.1',
+134 silly addNameRange     '1.2.0',
+134 silly addNameRange     '1.3.0',
+134 silly addNameRange     '2.0.0',
+134 silly addNameRange     '2.1.1',
+134 silly addNameRange     '2.1.2',
+134 silly addNameRange     '2.1.3',
+134 silly addNameRange     '2.1.4',
+134 silly addNameRange     '2.2.0',
+134 silly addNameRange     '2.2.1',
+134 silly addNameRange     '2.2.2',
+134 silly addNameRange     '2.2.3',
+134 silly addNameRange     '2.2.5',
+134 silly addNameRange     '2.2.6',
+134 silly addNameRange     '2.2.7',
+134 silly addNameRange     '2.2.8',
+134 silly addNameRange     '2.2.9',
+134 silly addNameRange     '2.2.10',
+134 silly addNameRange     '2.2.11',
+134 silly addNameRange     '2.2.12',
+134 silly addNameRange     '2.2.13',
+134 silly addNameRange     '2.2.14',
+134 silly addNameRange     '2.2.15',
+134 silly addNameRange     '2.2.16',
+134 silly addNameRange     '2.2.17',
+134 silly addNameRange     '2.2.18',
+134 silly addNameRange     '2.2.19',
+134 silly addNameRange     '2.2.20',
+134 silly addNameRange     '3.0.0',
+134 silly addNameRange     '3.0.1' ] ]
+135 verbose addNamed [ 'gulp-util', '3.0.1' ]
+136 verbose addNamed [ '3.0.1', '3.0.1' ]
+137 silly lockFile ea8d3cdd-gulp-util-3-0-1 gulp-util@3.0.1
+138 verbose lock gulp-util@3.0.1 C:\Users\John\AppData\Roaming\npm-cache\ea8d3cdd-gulp-util-3-0-1.lock
+139 silly lockFile cef7c707-gulp-uglify-1-0-1 gulp-uglify@1.0.1
+140 silly lockFile cef7c707-gulp-uglify-1-0-1 gulp-uglify@1.0.1
+141 silly lockFile bcb21bd2-gulp-livescript-2-3-0 gulp-livescript@2.3.0
+142 silly lockFile bcb21bd2-gulp-livescript-2-3-0 gulp-livescript@2.3.0
+143 silly lockFile 044a9113-gulp-uglify gulp-uglify@
+144 silly lockFile 044a9113-gulp-uglify gulp-uglify@
+145 silly lockFile ea8d3cdd-gulp-util-3-0-1 gulp-util@3.0.1
+146 silly lockFile ea8d3cdd-gulp-util-3-0-1 gulp-util@3.0.1
+147 silly lockFile 4da3c171-gulp-livescript gulp-livescript@
+148 silly lockFile 4da3c171-gulp-livescript gulp-livescript@
+149 silly lockFile ecd61fb3-gulp-util gulp-util@
+150 silly lockFile ecd61fb3-gulp-util gulp-util@
+151 http 304 https://registry.npmjs.org/gulp-rename
+152 silly registry.get cb [ 304,
+152 silly registry.get   { date: 'Sun, 30 Nov 2014 10:13:13 GMT',
+152 silly registry.get     server: 'Apache',
+152 silly registry.get     via: '1.1 varnish',
+152 silly registry.get     'last-modified': 'Sun, 30 Nov 2014 10:13:13 GMT',
+152 silly registry.get     'cache-control': 'max-age=60',
+152 silly registry.get     etag: '"5PJ1JG3W1FLXL54BFMAJ42UVK"',
+152 silly registry.get     age: '38',
+152 silly registry.get     'x-served-by': 'cache-lcy1122-LCY',
+152 silly registry.get     'x-cache': 'HIT',
+152 silly registry.get     'x-cache-hits': '1',
+152 silly registry.get     'x-timer': 'S1417342393.801113,VS0,VE0',
+152 silly registry.get     vary: 'Accept',
+152 silly registry.get     'content-length': '0',
+152 silly registry.get     'keep-alive': 'timeout=10, max=49',
+152 silly registry.get     connection: 'Keep-Alive' } ]
+153 verbose etag gulp-rename from cache
+154 silly addNameRange number 2 { name: 'gulp-rename', range: '*', hasData: true }
+155 silly addNameRange versions [ 'gulp-rename',
+155 silly addNameRange   [ '0.1.0', '0.2.1', '0.2.2', '1.0.0', '1.1.0', '1.2.0' ] ]
+156 verbose addNamed [ 'gulp-rename', '1.2.0' ]
+157 verbose addNamed [ '1.2.0', '1.2.0' ]
+158 silly lockFile 5981c611-gulp-rename-1-2-0 gulp-rename@1.2.0
+159 verbose lock gulp-rename@1.2.0 C:\Users\John\AppData\Roaming\npm-cache\5981c611-gulp-rename-1-2-0.lock
+160 silly lockFile 5981c611-gulp-rename-1-2-0 gulp-rename@1.2.0
+161 silly lockFile 5981c611-gulp-rename-1-2-0 gulp-rename@1.2.0
+162 silly lockFile 81aa0665-gulp-rename gulp-rename@
+163 silly lockFile 81aa0665-gulp-rename gulp-rename@
+164 http 304 https://registry.npmjs.org/gulp
+165 silly registry.get cb [ 304,
+165 silly registry.get   { date: 'Sun, 30 Nov 2014 10:13:13 GMT',
+165 silly registry.get     server: 'Apache',
+165 silly registry.get     via: '1.1 varnish',
+165 silly registry.get     'last-modified': 'Sun, 30 Nov 2014 10:13:13 GMT',
+165 silly registry.get     'cache-control': 'max-age=60',
+165 silly registry.get     etag: '"86NT4MJRHTZ109XKJ21MDRV0W"',
+165 silly registry.get     age: '0',
+165 silly registry.get     'x-served-by': 'cache-lcy1120-LCY',
+165 silly registry.get     'x-cache': 'HIT',
+165 silly registry.get     'x-cache-hits': '1',
+165 silly registry.get     'x-timer': 'S1417342393.669440,VS0,VE156',
+165 silly registry.get     vary: 'Accept',
+165 silly registry.get     'content-length': '0',
+165 silly registry.get     'keep-alive': 'timeout=10, max=50',
+165 silly registry.get     connection: 'Keep-Alive' } ]
+166 verbose etag gulp from cache
+167 silly addNameRange number 2 { name: 'gulp', range: '*', hasData: true }
+168 silly addNameRange versions [ 'gulp',
+168 silly addNameRange   [ '0.0.1',
+168 silly addNameRange     '0.0.2',
+168 silly addNameRange     '0.0.3',
+168 silly addNameRange     '0.0.4',
+168 silly addNameRange     '0.0.5',
+168 silly addNameRange     '0.0.7',
+168 silly addNameRange     '0.0.8',
+168 silly addNameRange     '0.0.9',
+168 silly addNameRange     '0.1.0',
+168 silly addNameRange     '0.2.0',
+168 silly addNameRange     '1.0.0',
+168 silly addNameRange     '1.1.0',
+168 silly addNameRange     '1.2.0',
+168 silly addNameRange     '1.2.1',
+168 silly addNameRange     '2.0.0',
+168 silly addNameRange     '2.0.1',
+168 silly addNameRange     '2.1.0',
+168 silly addNameRange     '2.2.0',
+168 silly addNameRange     '2.3.0',
+168 silly addNameRange     '2.4.0',
+168 silly addNameRange     '2.4.1',
+168 silly addNameRange     '2.6.0',
+168 silly addNameRange     '2.6.1',
+168 silly addNameRange     '2.7.0',
+168 silly addNameRange     '3.0.0',
+168 silly addNameRange     '3.1.1',
+168 silly addNameRange     '3.1.2',
+168 silly addNameRange     '3.1.3',
+168 silly addNameRange     '3.1.4',
+168 silly addNameRange     '3.2.0',
+168 silly addNameRange     '3.2.1',
+168 silly addNameRange     '3.2.2',
+168 silly addNameRange     '3.2.3',
+168 silly addNameRange     '3.2.4',
+168 silly addNameRange     '3.2.5',
+168 silly addNameRange     '3.3.0',
+168 silly addNameRange     '3.3.1',
+168 silly addNameRange     '3.3.2',
+168 silly addNameRange     '3.3.4',
+168 silly addNameRange     '3.4.0',
+168 silly addNameRange     '3.5.0',
+168 silly addNameRange     '3.5.1',
+168 silly addNameRange     '3.5.2',
+168 silly addNameRange     '3.5.5',
+168 silly addNameRange     '3.5.6',
+168 silly addNameRange     '3.6.0',
+168 silly addNameRange     '3.6.1',
+168 silly addNameRange     '3.6.2',
+168 silly addNameRange     '3.7.0',
+168 silly addNameRange     '3.8.0',
+168 silly addNameRange     '3.8.1',
+168 silly addNameRange     '3.8.2',
+168 silly addNameRange     '3.8.3',
+168 silly addNameRange     '3.8.4',
+168 silly addNameRange     '3.8.5',
+168 silly addNameRange     '3.8.6',
+168 silly addNameRange     '3.8.7',
+168 silly addNameRange     '3.8.8',
+168 silly addNameRange     '3.8.9',
+168 silly addNameRange     '3.8.10' ] ]
+169 verbose addNamed [ 'gulp', '3.8.10' ]
+170 verbose addNamed [ '3.8.10', '3.8.10' ]
+171 silly lockFile f843d0d7-gulp-3-8-10 gulp@3.8.10
+172 verbose lock gulp@3.8.10 C:\Users\John\AppData\Roaming\npm-cache\f843d0d7-gulp-3-8-10.lock
+173 silly lockFile f843d0d7-gulp-3-8-10 gulp@3.8.10
+174 silly lockFile f843d0d7-gulp-3-8-10 gulp@3.8.10
+175 silly lockFile 72f4391e-gulp gulp@
+176 silly lockFile 72f4391e-gulp gulp@
+177 http 404 https://registry.npmjs.org/Livescript
+178 silly registry.get cb [ 404,
+178 silly registry.get   { date: 'Sun, 30 Nov 2014 10:13:14 GMT',
+178 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+178 silly registry.get     'content-type': 'application/json',
+178 silly registry.get     'cache-control': 'max-age=0',
+178 silly registry.get     'content-length': '52',
+178 silly registry.get     'accept-ranges': 'bytes',
+178 silly registry.get     via: '1.1 varnish',
+178 silly registry.get     'x-served-by': 'cache-lcy1122-LCY',
+178 silly registry.get     'x-cache': 'MISS',
+178 silly registry.get     'x-cache-hits': '0',
+178 silly registry.get     'x-timer': 'S1417342393.649210,VS0,VE356',
+178 silly registry.get     'keep-alive': 'timeout=10, max=50',
+178 silly registry.get     connection: 'Keep-Alive' } ]
+179 silly lockFile 12b9634a-Livescript Livescript@
+180 silly lockFile 12b9634a-Livescript Livescript@
+181 error 404 'Livescript' is not in the npm registry.
+181 error 404 You should bug the author to publish it
+181 error 404
+181 error 404 Note that you can also install from a
+181 error 404 tarball, folder, or http url, or git url.
+182 error System Windows_NT 6.1.7601
+183 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "--save-dev" "gulp" "gulp-util" "Livescript" "gulp-livescript" "gulp-uglify" "gulp-rename"
+184 error cwd c:\parse\parse\public
+185 error node -v v0.10.21
+186 error npm -v 1.3.11
+187 error code E404
+188 verbose exit [ 1, true ]

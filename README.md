@@ -26,13 +26,13 @@ git clone https://github.com/Melinka/visualisation_tool
 
 Install the following Node modules:
 
-npm install gulp
+`npm install gulp`
 
-npm install LiveScript
+`npm install LiveScript`
 
-npm install stylus
+`npm install stylus`
 
-npm install jade
+`npm install jade`
 
 Enjoy visualising your story around data!
 

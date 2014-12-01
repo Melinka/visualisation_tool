@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "CanvasMediaInContext": {
+            "applicationId": "0GI98IoEbwAmZb8zHw2hUj6TgA1M3af5rRKX6eUU", 
+            "masterKey": "3x15ZBCXe2XTZR2jo0deB4qpnXcoUZ5MsWXeCFxM"
+        }, 
+        "_default": {
+            "link": "CanvasMediaInContext"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.3.2"
+    }
+}

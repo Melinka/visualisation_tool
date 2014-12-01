@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Canvas #MediaInContext</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/landing-page.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<!-- jQuery -->
+		<script src="js/jquery.js"></script>
+		
+		<!-- Bootstrap Core JavaScript -->
+		<script src="js/bootstrap.min.js"></script>
+		
+		<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<!--HANDSONTABLE -->
+		<script src="http://handsontable.com/dist/handsontable.full.js"></script>
+		<link rel="stylesheet" media="screen" href="http://handsontable.com/dist/handsontable.full.css">
+
+	
+	
+	<script type = "text/javascript" src="papaparse.js"></script>
+	
+	<script type = "text/javascript" src="parse1.js"></script>
+	<script type ="text/javascript">
+		Parse.initialize("0GI98IoEbwAmZb8zHw2hUj6TgA1M3af5rRKX6eUU", "CJV6NXQXXjCFQsO0vQnZMhGQ1J4I8anfLd7X9iNW");
+		
+		
+		
+		function readBlob(lolid, tableid) {
+
+			var files = document.getElementById(lolid).files[0]
+			console.log(files.type);
+			if(files.type == ""){
+				console.log("here");
+				files.type = "text/tab-separated-values";
+			}
+			console.log(files);
+			//var file = files[0];
+
+			//var start = parseInt(opt_startByte) || 0;
+			//var stop = parseInt(opt_stopByte) || file.size - 1;
+			var name = files.name;
+			
+			name = name.replace(/[^A-Za-z.]/g, "");
+			//console.log(name);
+			
+			var parseFile = new Parse.File(name, files);
+			  parseFile.save().then(function(x) {
+				document.getElementById(lolid).json = x.url();
+			  
+				var data = document.getElementById('exampleInputFile').json
+				var story = document.getElementById('exampleInputFile2').json			
+				
+				if(document.getElementById(lolid).json){
+					document.getElementById(lolid+'btn').className = 'btn btn-success'
+					//document.getElementById(lolid+'btn').text = "Success!";
+				}else{
+					document.getElementById(lolid+'btn').className = 'btn btn-default'
+					//document.getElementById(lolid+'btn').text = "Submit";
+				}
+				
+				if(data && story)
+				{
+					document.getElementById('uniqueLink').className = 'btn btn-success btn-lg'
+				}else{
+					document.getElementById('uniqueLink').className = 'btn btn-success btn-lg disabled'
+				}
+				//console.log(x.url());
+			  }, function(error) {
+			  console.log(error);
+				//alert(error)
+			  });
+			
+			var reader = new FileReader();
+			reader.onload = function(e) {
+			  var data = e.target.result; 
+			  console.log(data);
+			  var json =  Papa.parse(data);
+			  //console.log(json);
+			  json = csvJSON(json.data);
+			  //console.log(json);
+			  
+			  var container = document.getElementById(tableid);
+			  var hot3 = new Handsontable(container,{
+				data: json,
+				startRows: json.length,
+				startCols: Object.keys(json[1]).length,
+				colHeaders: Object.keys(json[1]),
+				minSpareRows: 1
+			  });
+			  
+			  //console.log(document.getElementById(lolid).json);
+			  //console.log(JSON.stringify(json));
+			};
+				
+			reader.readAsBinaryString(files);
+			//var data = reader.result
+			//var workbook = XLS.read(data, {type: 'binary'});
+		
+	  }
+	  
+	  function generateStory(){
+		var data = document.getElementById('exampleInputFile').json
+		var story = document.getElementById('exampleInputFile2').json
+		
+			//console.log(data);
+			//console.log(story);
+			var St = Parse.Object.extend("Story");
+			var sto = new St();
+			 
+			sto.set("Data", data);
+			sto.set("Story", story);
+			
+			 
+			sto.save(null, {
+			  success: function(sto) {
+				// Execute any logic that should take place after the object is saved.
+				//alert('New object created with objectId: ' + sto.id);
+				window.open('http://muyueh.com/30/scroll/map.html'+'?id='+sto.id, '_blank');
+			  },
+			  error: function(sto, error) {
+				// Execute any logic that should take place if the save fails.
+				// error is a Parse.Error with an error code and message.
+				alert('Failed to create new object, with error code: ' + error.message);
+			  }
+			});
+	  }
+	  
+	  
+	  function csvJSON(lines){
+ 
+ // var lines=csv.split("\n");
+ 
+  var result = [];
+ 
+  var headers=lines[0];
+ 
+  for(var i=1;i<lines.length;i++){
+ 
+	  var obj = {};
+	  var currentline=lines[i];
+ 
+	  for(var j=0;j<headers.length;j++){
+		  obj[headers[j]] = currentline[j];
+	  }
+ 
+	  result.push(obj);
+ 
+  }
+ 
+  //return result; //JavaScript object
+  return result; //JSON
+}
+	
+	</script>
+</head>
+
+	<body>
+	<!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Narrata</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <!--li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Services</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li-->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+		
+        <!-- /.container -->
+    </nav>
+	<div class ="container">
+	</br></br></br>
+			<div style="float:right;">Try our demo data </br></br><a href="./test/data.csv"><img src="./img/csv.png" alt="Facebook" style="float:right; margin:-8px 10px 10px 10px;">Data</a></br></br></br>
+			<a href="./test/story.csv"><img  src="./img/csv.png" alt="Facebook" style="float:right; margin:-8px 10px 10px 10px;">Story</a></div>
+			<form role="form" >			 
+			  <div class="form-group">
+				<label for="exampleInputFile">Choose Report</label>
+				<input type="file" id="exampleInputFile">
+				<p class="help-block">Choose your report csv file</p>
+			  </div>			   
+			</form>
+			<button  class="btn btn-default" onClick="readBlob('exampleInputFile','example3')" id="exampleInputFilebtn">Submit</button>			
+			</br></br>
+			<div id="example3" class="handsontable" style = "width: 100%;height: auto;overflow: auto; max-height:500px;"></div>
+			</br></br>
+			
+			<form role="form" >			 
+			  <div class="form-group">
+				<label for="exampleInputFile2">Choose Story</label>
+				<input type="file" id="exampleInputFile2">
+				<p class="help-block">Choose your story csv file</p>
+			  </div>			   
+			</form>
+			<button  class="btn btn-default" onClick="readBlob('exampleInputFile2', 'example4')" id="exampleInputFile2btn" >Submit</button>
+			</br></br>
+			<div id="example4" class="handsontable" style = "width: 100%;height: auto;overflow: auto; max-height:500px;"></div>
+			</br></br>
+			<a href="#" id="uniqueLink" onClick="generateStory();" class="btn btn-success btn-lg disabled" > <span class="network-name">Generate Story!</span></a>
+			
+			</br></br></br></br>
+		
+	</div>
+		
+
+	</body>
+
+</html>
+

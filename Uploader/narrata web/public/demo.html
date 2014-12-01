@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Canvas #MediaInContext</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/landing-page.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	
+	<style type="text/css">
+ 
+	#share-buttons img {
+	width: 35px;
+	padding: 5px;
+	border: 0;
+	box-shadow: 0;
+	display: inline;
+	}
+	 
+	</style>
+	<script type="text/javascript">
+	
+		function share(){
+			width = 400;
+			height = 300;
+			var leftPosition, topPosition;
+			//Allow for borders.
+			leftPosition = (window.screen.width / 2) - ((width / 2) + 10);
+			console.log(leftPosition);
+			//Allow for title and status bars.
+			topPosition = (window.screen.height / 2) - ((height / 2) + 50);
+			console.log(topPosition);
+			var windowFeatures = "status=no,height=" + height + ",width=" + width + ",resizable=yes,left=" + leftPosition + ",top=" + topPosition + ",screenX=" + leftPosition + ",screenY=" + topPosition + ",toolbar=no,menubar=no,scrollbars=no,location=no,directories=no";
+			u=document.location.href;
+			t=document.title;
+			window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer', windowFeatures);
+			return false;
+		}
+	</script>
+</head>
+
+<body>
+	<div align="center">
+	<a  href="index.html"> <span style="float:left; margin:20px 20px 20px 20px;" class="glyphicon glyphicon-arrow-left" aria-hidden="true"> Back</span></a>
+	<a onClick="return share();" href="#"><img src="http://mediaincontext.parseapp.com/img/facebook.png" alt="Facebook" style="float:right; margin:75px 10px 10px 10px;"></a>
+    <img src = "./img/ajz.png"></img>
+	
+	<!--iframe style ="width:90%; height:800px; margin-right:500px; -webkit-transform:scale(0.5);-moz-transform-scale(0.5);" src="http://muyueh.com/30/scroll/map.html?id=Yh6G4nBkdt"></iframe-->
+	
+	</div>
+	
+	
+</body>
+
+</html>
